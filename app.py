@@ -108,6 +108,7 @@ def fetch_website_text(url: str) -> Optional[str]:
 
 
 def split_into_sentences(text: str) -> List[str]:
+    # Fixed regex: lookbehind for . ! ? followed by whitespace
     parts = re.split(r"(?<=[.!?])s+", text.replace("
 ", " "))
     return [p.strip() for p in parts if p.strip()]
